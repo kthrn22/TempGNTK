@@ -258,8 +258,8 @@ if __name__ == "__main__":
     # Recall@K + MRR
     # og's code
     # link_pred_eval(model.to(args.device), args, g, df, node_feats, edge_feats)
-    ["facebook_ct1", ""]
-    for data_prefix in ["facebook_ct1"]:
+    
+    for data_prefix in ["infectious_ct1", "dblp_ct1", "tumblr_ct1", "facebook_ct1", "highschool_ct1"]:
     # for data_prefix in ["infectious_ct1", "dblp_ct1", "tumblr_ct1", "facebook_ct1"]:
         for snapshot_id in range(5):
             if snapshot_id == 4:
