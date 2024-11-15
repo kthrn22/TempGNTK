@@ -198,12 +198,16 @@ if __name__ == "__main__":
 
     all_results = {}
 
-    for data_name, len_data in zip(["infectious_ct1", "dblp_ct1", "tumblr_ct1", "facebook_ct1"], [200, 755, 373, 995]):
+    # for data_name, len_data in zip(["infectious_ct1", "dblp_ct1", "tumblr_ct1", "facebook_ct1"], [200, 755, 373, 995]):
+    for data_name, len_data in zip(data_names, lens):
         
         all_results[data_name] = []
         
-        for i in range(4):
-            score, std, total_time = run(data_name + "_{}".format(i), len_data, data_name)
+        for i in range(5):
+            if i == 4:
+                score, std, total_time = run(data_name, len_data, data_name)    
+            else:
+                score, std, total_time = run(data_name + "_{}".format(i), len_data, data_name)
             all_info = (score, std, total_time)
 
             all_results[data_name].append(all_info)
