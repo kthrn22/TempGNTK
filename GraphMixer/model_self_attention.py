@@ -1,3 +1,5 @@
+### Code from GraphMixer's official implementation: https://github.com/CongWeilin/GraphMixer
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
