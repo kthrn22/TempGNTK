@@ -169,10 +169,10 @@ def eval(train_data, val_data, temporal_data, dataset, args, mode = "Validation"
     train_gram /= (train_gram[train_gram != 0].min())
 
     ### new pipeline
-    # train_node_emb = torch.load("./new_pipeline/train_node_emb_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
-    # train_adj = torch.load("./new_pipeline/train_adj_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
-    # train_gram_matrix = torch.load("./new_pipeline/train_gram_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
-    # train_diag_list = torch.load("./new_pipeline/train_diag_list_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+    # train_node_emb = torch.load("./train_node_emb_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+    # train_adj = torch.load("./train_adj_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+    # train_gram_matrix = torch.load("./train_gram_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+    # train_diag_list = torch.load("./train_diag_list_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
     # multi_svr = fit_kernel(train_gram_matrix, train_labels.numpy(), C = args.C)
     ###
     ### new pipeline
@@ -282,10 +282,10 @@ def train(temporal_data, current_time, neighbor_loader, args, save_train = False
     _, train_labels = torch.load("./labels_all_time/{}.pt".format(current_time))
 
     if save_train:
-        torch.save(train_node_emb, "./new_pipeline/train_node_emb_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
-        torch.save(train_adj, "./new_pipeline/train_adj_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
-        torch.save(train_gram_matrix, "./new_pipeline/train_gram_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
-        torch.save(train_diag_list, "./new_pipeline/train_diag_list_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+        torch.save(train_node_emb, "./train_node_emb_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+        torch.save(train_adj, "./train_adj_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+        torch.save(train_gram_matrix, "./train_gram_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
+        torch.save(train_diag_list, "./train_diag_list_{}_{}_{}.pt".format(args.time_window, args.k_recent, args.num_mlp_layers))
 
     return train_node_emb, train_adj, train_gram_matrix, train_diag_list, train_labels
 
@@ -314,12 +314,12 @@ def evaluate_timestep(temporal_data, current_time, neighbor_loader, svr, svr_nor
         norm_test_gram = (test_gram_matrix / scale).nan_to_num()
 
         if save_test_gram:
-            torch.save(test_gram_matrix, "./new_pipeline/test_gram_all_time/{}_{}_{}_{}.pt".format(current_time, args.time_window, args.k_recent, args.num_mlp_layers))
+            torch.save(test_gram_matrix, "./test_gram_all_time/{}_{}_{}_{}.pt".format(current_time, args.time_window, args.k_recent, args.num_mlp_layers))
         
         return 0
     ####
 
-    test_gram_matrix = torch.load("./new_pipeline/test_gram_all_time/{}_{}_{}_{}.pt".format(current_time, args.time_window, args.k_recent, args.num_mlp_layers))
+    test_gram_matrix = torch.load("./test_gram_all_time/{}_{}_{}_{}.pt".format(current_time, args.time_window, args.k_recent, args.num_mlp_layers))
     diag = test_gram_matrix.diag()
     scale = diag[:, None] * diag[None, :]
     scale = torch.sqrt(scale)
