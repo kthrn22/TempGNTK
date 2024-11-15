@@ -64,8 +64,8 @@ def t_gntk(data_dir, data_name):
     num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge = readTUds(data_dir)
     temporal_graphs = temporal_graph_from_TUds(num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge)
 
-    train_size = 100
-    # int(0.7 * len(temporal_graphs))
+    # train_size = 100
+    train_size = int(0.7 * len(temporal_graphs))
     train_ds = temporal_graphs[:train_size]
     labels = graphs_label[:train_size]
 
@@ -114,7 +114,8 @@ def wl(data_dir, data_name):
 
     num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge = readTUds(data_dir)
     temporal_graphs = temporal_graph_from_TUds(num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge)
-    train_size = 100
+    # train_size = 100
+    train_size = int(0.7 * len(temporal_graphs))
     train_ds = temporal_graphs[:train_size]
     labels = graphs_label[:train_size]
 
@@ -173,7 +174,8 @@ def sp(data_dir, data_name):
 
     num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge = readTUds(data_dir)
     temporal_graphs = temporal_graph_from_TUds(num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge)
-    train_size = 100
+    # train_size = 100
+    train_size = int(0.7 * len(temporal_graphs))
     train_ds = temporal_graphs[:train_size]
     labels = graphs_label[:train_size]
 
@@ -233,7 +235,8 @@ def rd(data_dir, data_name):
 
     num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge = readTUds(data_dir)
     temporal_graphs = temporal_graph_from_TUds(num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge)
-    train_size = 100
+    # train_size = 100
+    train_size = int(0.7 * len(temporal_graphs))
     train_ds = temporal_graphs[:train_size]
     labels = graphs_label[:train_size]
 
@@ -294,8 +297,8 @@ def graph2vec(data_dir, data_name):
     num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge = readTUds(data_dir)
     temporal_graphs = temporal_graph_from_TUds(num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge)
 
-    train_size = 100
-    # int(0.7 * len(temporal_graphs))
+    # train_size = 100
+    train_size = int(0.7 * len(temporal_graphs))
     train_ds = temporal_graphs[:train_size]
     labels = graphs_label[:train_size]
 
@@ -360,8 +363,8 @@ def netlsd(data_dir, data_name):
     num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge = readTUds(data_dir)
     temporal_graphs = temporal_graph_from_TUds(num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge)
 
-    train_size = 100
-    # int(0.7 * len(temporal_graphs))
+    # train_size = 100
+    train_size = int(0.7 * len(temporal_graphs))
     train_ds = temporal_graphs[:train_size]
     labels = graphs_label[:train_size]
 
@@ -428,8 +431,8 @@ def gl2vec(data_dir, data_name):
     num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge = readTUds(data_dir)
     temporal_graphs = temporal_graph_from_TUds(num_graphs, graphs_label, graphs_node, node_mapping, graphs_edge)
 
-    train_size = 100
-    # int(0.7 * len(temporal_graphs))
+    # train_size = 100
+    train_size = int(0.7 * len(temporal_graphs))
     train_ds = temporal_graphs[:train_size]
     labels = graphs_label[:train_size]
 
